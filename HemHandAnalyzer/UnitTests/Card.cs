@@ -3,6 +3,7 @@ using NUnit.Framework;
 
 namespace HemHandAnalyzer.UnitTests
 {
+    // Test useless GIT commit
     [TestFixture]
     class TestCard
     {        
