@@ -94,6 +94,19 @@ namespace HemHandAnalyzer
             return (_value.ToString() + SuitToChar(_suit));
         }
 
+        public override bool Equals(object obj)
+        {
+            if (!(obj is Card))
+                throw new ArgumentException("Can only compare cards between themselves");
+            Card comparedTo = (Card)obj;
+            return (_value.Equals(comparedTo._value) && _suit.Equals(comparedTo._suit));
+        }
+
+        public override int GetHashCode()
+        {
+            return Array.IndexOf(_acceptableCardValues, _value) + ((_acceptableCardValues.Length)*(Int32) _suit);
+        }
+
         static char SuitToChar(Suit s)
         {
             switch (s)
